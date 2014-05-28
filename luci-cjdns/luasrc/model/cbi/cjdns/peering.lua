@@ -9,7 +9,6 @@ m = Map("cjdns", translate("cjdns"),
     networks."))
 
 m.on_after_commit = function(self)
-  os.execute("/etc/init.d/cjdns restart")
 end
 
 -- UDP Peers
@@ -21,8 +20,8 @@ udp_peers.anonymous = true
 udp_peers.addremove = true
 udp_peers.template  = "cbi/tblsection"
 
-udp_peers:option(Value, "address", translate("IP Address")).datatype = "ipaddr"
-udp_peers:option(Value, "port", translate("Port")).datatype = "portrange"
+udp_peers:option(Value, "address", translate("IP Address")).datatype = "ip4addr"
+udp_peers:option(Value, "port", translate("Port")).datatype = "port"
 udp_interface = udp_peers:option(Value, "interface", translate("UDP Interface"))
 local index = 1
 for i,section in pairs(cursor:get_all("cjdns")) do
@@ -40,7 +39,7 @@ eth_peers.anonymous = true
 eth_peers.addremove = true
 eth_peers.template  = "cbi/tblsection"
 
-eth_peers:option(Value, "address", translate("IP Address")).datatype = "ipaddr"
+eth_peers:option(Value, "address", translate("MAC Address")).datatype = "macaddr"
 eth_interface = eth_peers:option(Value, "interface", translate("Ethernet Interface"))
 local index = 1
 for i,section in pairs(cursor:get_all("cjdns")) do
@@ -58,8 +57,16 @@ passwords.anonymous = true
 passwords.addremove = true
 passwords.template  = "cbi/tblsection"
 
-passwords:option(Value, "user", translate("User/Name"))
-passwords:option(Value, "contact", translate("Contact"))
-passwords:option(Value, "password", translate("Password"))
+function generate_password()
+-- tr -cd 'A-Za-z0-9' < /dev/urandom
+  local process = io.popen("tr -cd 'A-Za-z0-9' < /dev/urandom", "r")
+  local password = process:read(32)
+  process:close()
+  return password
+end
+
+passwords:option(Value, "user", translate("User/Name (optional)"))
+passwords:option(Value, "contact", translate("Contact (optional)"))
+passwords:option(Value, "password", translate("Password")).default = generate_password()
 
 return m

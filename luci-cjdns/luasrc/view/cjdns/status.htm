@@ -13,7 +13,7 @@
 
 			var row = table.insertRow(-1);
 			row.className = 'cbi-section-table-row cbi-rowstyle-' + ((i % 2) + 1);
-			row.insertCell(-1).innerHTML = name;
+			// row.insertCell(-1).innerHTML = name;
 			row.insertCell(-1).innerHTML = interface;
 			row.insertCell(-1).innerHTML = peer.ipv6;
 			var latencyCell = row.insertCell(-1);
@@ -35,7 +35,7 @@
 			var row = table.insertRow(-1);
 			row.className = 'cbi-section-table-row';
 			var cell = row.insertCell(-1);
-			cell.colSpan = 5;
+			cell.colSpan = 4;
 			cell.innerHTML = 'No active peers';
 		}
 	};
@@ -49,7 +49,7 @@
 	<legend><%:Active cjdns peers%></legend>
 	<table class="cbi-section-table" id="cjdns-peerings">
 		<tr class="cbi-section-table-titles">
-			<th class="cbi-section-table-cell"><%:Name%></th>
+			<!--th class="cbi-section-table-cell"><%:Name%></th-->
 			<th class="cbi-section-table-cell"><%:Interface%></th>
 			<th class="cbi-section-table-cell"><%:IPv6%></th>
 			<th class="cbi-section-table-cell"><%:Latency%></th>
