@@ -29,7 +29,9 @@ define Package/cjdns
   SUBMENU:=Routing and Redirection
   TITLE:=Experimental self configuring routing protocol.
   DEPENDS:=+kmod-tun +kmod-ipv6 +libnl-tiny +libpthread +librt +SSP_SUPPORT:libssp \
-		+lua-bencode +dkjson +luasocket +lua-sha2
+		+lua-bencode +dkjson +luasocket +lua-sha2 \
+		+netperf +tcpdump +ip +mtr \
+		+iputils-ping +iputils-tracepath +iputils-ping6 +iputils-tracepath6 +iputils-traceroute6
   MAINTAINER:=cjd
 endef
 
