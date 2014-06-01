@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-cjdns
-PKG_RELEASE:=1
+PKG_RELEASE:=0.9.0
 
 include $(INCLUDE_DIR)/package.mk
 

@@ -1,14 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cjdns
-PKG_VERSION:=0.7
+# PKG_VERSION:=... cjdns doesn't really have versions
+PKG_RELEASE:=0.9.0
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=git://github.com/cjdelisle/cjdns.git
+PKG_SOURCE_URL:=https://github.com/cjdelisle/cjdns.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=master
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 

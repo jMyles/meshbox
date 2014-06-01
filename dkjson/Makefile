@@ -1,15 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dkjson
-
-PKG_VERSION:=master
-PKG_RELEASE:=1
+PKG_VERSION:=2.4.0
+PKG_RELEASE:=$(PKG_VERSION)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)
 PKG_SOURCE_URL:=https://github.com/LuaDist/dkjson.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)
-PKG_SOURCE_VERSION:=master
+PKG_SOURCE_VERSION:=7ba6b81eb2c9a5ef0748b9a0399d8dc25c637202 # 2.4 tag
 
 include $(INCLUDE_DIR)/package.mk
 

@@ -1,15 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lua-bencode
-PKG_REV:=b0e183bb3f3d6970d0f2472cd65e5b8bb110e487
-PKG_VERSION:=0.3_r$(PKG_REV)
-PKG_RELEASE:=1
+PKG_VERSION:=2.1.0
+PKG_RELEASE:=$(PKG_VERSION)
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)
 PKG_SOURCE_URL:=https://bitbucket.org/wilhelmy/lua-bencode
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=hg
+PKG_SOURCE_VERSION:=500243383cb6acbddd3cf12aee6e4667aab53324 # RELEASE-2.1.0 tag
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -36,7 +35,7 @@ endef
 
 define Package/lua-bencode/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/bencode.lua $(1)/usr/lib/lua
+	$(INSTALL_DATA) $(BUILD_DIR)/bencode/bencode.lua $(1)/usr/lib/lua
 endef
 
 $(eval $(call BuildPackage,lua-bencode))
