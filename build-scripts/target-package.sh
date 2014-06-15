@@ -168,24 +168,25 @@ function feeds ()
     local packages="git://git.openwrt.org/packages.git"
     local community="git://github.com/openwrt/packages.git"
     local routing="git://github.com/openwrt-routing/packages.git"
-    local telephony="http://feeds.openwrt.nanl.de/openwrt/telephony.git"
-    local xwrt="http://x-wrt.googlecode.com/svn/trunk/package"
+    local telephony="http://git.openwrt.org/feed/telephony.git"
     local management="https://github.com/openwrt-management/packages.git"
-    # Project Meshnet feeds
+    # local xwrt="http://x-wrt.googlecode.com/svn/trunk/package"
 
+    # Project Meshnet feeds
     local meshbox="git://github.com/seattlemeshnet/meshbox.git"
     local enigmabox="https://github.com/enigmagroup/enigmabox-openwrt.git"
     local cjdns="git://github.com/wfleurant/cjdns-openwrt.git"
 
-    # Default Feeds
-    echo "src-git luci          $luci"      >   feeds.conf
-    echo "src-git packages      $packages"  >>  feeds.conf
-    echo "src-git community     $community" >>  feeds.conf
-    echo "src-git routing       $routing"   >>  feeds.conf
-    echo "src-git telephony     $telephony" >>  feeds.conf
-    echo "src-svn xwrt          $xwrt"      >>  feeds.conf
+    # Default feeds.conf
+    echo "src-git luci          $luci"       >   feeds.conf
+    echo "src-git packages      $packages"   >>  feeds.conf
+    echo "src-git community     $community"  >>  feeds.conf
+    echo "src-git routing       $routing"    >>  feeds.conf
+    echo "src-git telephony     $telephony"  >>  feeds.conf
+    echo "src-git management    $management" >>  feeds.conf
+    # echo "src-svn xwrt        $xwrt"       >>  feeds.conf
 
-    # Custom Feeds
+    # Custom feeds.conf
     case $1 in
         luci_cjdns | meshbox )
 		echo "src-git meshbox $meshbox" >> feeds.conf
