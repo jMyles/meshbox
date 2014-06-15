@@ -165,9 +165,9 @@ function feeds ()
 
     # OpenWrt feeds
     local luci="git://nbd.name/luci.git"
-    local packages="git://git.openwrt.org/packages.git"
-    local community="git://github.com/openwrt/packages.git"
-    local routing="git://github.com/openwrt-routing/packages.git"
+    local oldpackages="http://git.openwrt.org/packages.git"
+    local packages="https://github.com/openwrt/packages.git"
+    local routing="https://github.com/openwrt-routing/packages.git"
     local telephony="http://git.openwrt.org/feed/telephony.git"
     local management="https://github.com/openwrt-management/packages.git"
     # local xwrt="http://x-wrt.googlecode.com/svn/trunk/package"
@@ -180,7 +180,7 @@ function feeds ()
     # Default feeds.conf
     echo "src-git luci          $luci"       >   feeds.conf
     echo "src-git packages      $packages"   >>  feeds.conf
-    echo "src-git community     $community"  >>  feeds.conf
+    echo "src-git oldpackages   $oldpackages">>  feeds.conf
     echo "src-git routing       $routing"    >>  feeds.conf
     echo "src-git telephony     $telephony"  >>  feeds.conf
     echo "src-git management    $management" >>  feeds.conf
